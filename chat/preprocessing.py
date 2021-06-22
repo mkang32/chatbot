@@ -66,12 +66,12 @@ def chatbot_response(msg, words=words, model=model, intents=intents):
 
 import sys
 
-print()
-print("*"*10 + "Start of Conversation" + "*"*10)
-print("Say 'exit' to stop the conversation.....")
-sentence = input("Bot: How can I help you? \nYou:")
-while sentence != 'exit':
-	res = chatbot_response(sentence)
-	sentence = input(f"Bot: {res} \nYou:")
-print("*"*10 + "End of Conversation" + "*"*10)
+# print()
+# print("*"*10 + "Start of Conversation" + "*"*10)
+# print("Say 'exit' to stop the conversation.....")
+# sentence = input("Bot: How can I help you? \nYou:")
+# while sentence != 'exit':
+# 	res = chatbot_response(sentence)
+# 	sentence = input(f"Bot: {res} \nYou:")
+# print("*"*10 + "End of Conversation" + "*"*10)
 
