@@ -16,24 +16,29 @@ textarea{
 
 <script language="Javascript" >
 function addText(){
+    <!-- Add new sentence to the exiting textarea -->
     document.getElementById('textarea').value =
     document.getElementById('textarea').value
     + '\n'
     + 'You: '
     + document.getElementById('userInput').value
+
+    <!-- Always put scroll at the bottom -->
+    var textarea = document.getElementById('textarea');
+    textarea.scrollTop = textarea.scrollHeight;
+
 }
 </script>
 
 
 <!--Show chat history-->
 <textarea id="textarea" rows="10" cols="20">
-Bot: How can I help you?
-</textarea>
+Bot: How can I help you?</textarea>
 
 <!--Submit new sentence-->
 <br>
 <textarea id="userInput" name="userInput">
-How can you help?</textarea>
+How can you help me?</textarea>
 <button type="submit" onclick="addText()">Submit</button>
 
 </body>
