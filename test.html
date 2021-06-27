@@ -6,65 +6,35 @@ form * {
   display: block;
   margin: 10px;
 }
-</style>
-<script language="Javascript" >
-function download(filename, text) {
-  var pom = document.createElement('a');
-  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' +
-
-encodeURIComponent(text));
-  pom.setAttribute('download', filename);
-
-  pom.style.display = 'none';
-  document.body.appendChild(pom);
-
-  pom.click();
-
-  document.body.removeChild(pom);
+textarea{
+  overflow-y: scroll; /* Vertical scrollbar */
+  overflow: scroll; /* Horizontal and vertical scrollbar*/
 }
-</script>
+</style>
 </head>
 <body>
 
-<form onsubmit="download(this['name'].value, this['text'].value)">
-  <input type="text" name="name" value="test.txt">
-  <textarea rows=3 cols=50 name="text">Please type in this box. When you
-
-click the Download button, the contents of this box will be downloaded to
-
-your machine at the location you specify. Pretty nifty. </textarea>
-  <input type="submit" value="Download">
-</form>
-
-
-
-<!--Read local file and display -->
-<input type="file" id="myFile">
-<div id="output"></div>
-
-<script>
-var input = document.getElementById("myFile");
-var output = document.getElementById("output");
-
-input.addEventListener("change", function () {
-  if (this.files && this.files[0]) {
-    var myFile = this.files[0];
-    var reader = new FileReader();
-
-    reader.addEventListener('load', function (e) {
-      output.textContent = e.target.result;
-    });
-
-    reader.readAsBinaryString(myFile);
-  }
-});
+<script language="Javascript" >
+function addText(){
+    document.getElementById('textarea').value =
+    document.getElementById('textarea').value
+    + '\n'
+    + 'You: '
+    + document.getElementById('userInput').value
+}
 </script>
 
 
+<!--Show chat history-->
+<textarea id="textarea" rows="10" cols="20">
+Bot: How can I help you?
+</textarea>
 
-
-<!-- END: Read local file and display -->
-
+<!--Submit new sentence-->
+<br>
+<textarea id="userInput" name="userInput">
+How can you help?</textarea>
+<button type="submit" onclick="addText()">Submit</button>
 
 </body>
 </html>
