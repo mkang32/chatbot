@@ -17,19 +17,29 @@ textarea{
 <script language="Javascript" >
 function postSentence(str){
     <!-- Add to the existing textarea -->
-    addText(str)
+    addText(str, 'You')
+
+    <!-- get bot response -->
+    getBotResponse(str)
 }
 
-function addText(str){
+function addText(str, who){
     <!-- Add new sentence to the exiting textarea -->
     document.getElementById('textarea').value =
     document.getElementById('textarea').value
     + '\n'
-    + 'You: '
+    + who + ': '
     + str
 
     <!-- Always put scroll at the bottom -->
     putScrollToBottom()
+}
+
+function getBotResponse(str){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = addText(this.responseText, 'Bot')
+    xhttp.open("GET", "response.txt");
+    xhttp.send();
 }
 
 function putScrollToBottom(){
