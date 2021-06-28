@@ -15,19 +15,28 @@ textarea{
 <body>
 
 <script language="Javascript" >
-function addText(){
+function postSentence(str){
+    <!-- Add to the existing textarea -->
+    addText(str)
+}
+
+function addText(str){
     <!-- Add new sentence to the exiting textarea -->
     document.getElementById('textarea').value =
     document.getElementById('textarea').value
     + '\n'
     + 'You: '
-    + document.getElementById('userInput').value
+    + str
 
     <!-- Always put scroll at the bottom -->
+    putScrollToBottom()
+}
+
+function putScrollToBottom(){
     var textarea = document.getElementById('textarea');
     textarea.scrollTop = textarea.scrollHeight;
-
 }
+
 </script>
 
 
@@ -39,7 +48,7 @@ Bot: How can I help you?</textarea>
 <br>
 <textarea id="userInput" name="userInput">
 How can you help me?</textarea>
-<button type="submit" onclick="addText()">Submit</button>
+<button type="submit" onclick="postSentence(document.getElementById('userInput').value)">Submit</button>
 
 </body>
 </html>
