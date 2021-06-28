@@ -12,10 +12,10 @@ lemmatizer = WordNetLemmatizer()
 # nltk.download('wordnet')
 
 
-words = pickle.load(open('words.pkl', 'rb'))
-model = load_model('chatbot_model.h5')
-classes = pickle.load(open('classes.pkl', 'rb'))
-intents = json.load(open('intents.json', 'rb'))
+words = pickle.load(open('chat/words.pkl', 'rb'))
+model = load_model('chat/chatbot_model.h5')
+classes = pickle.load(open('chat/classes.pkl', 'rb'))
+intents = json.load(open('chat/intents.json', 'rb'))
 
 def clean_up_sentence(sentence):
 	"""
