@@ -1,5 +1,5 @@
 from chat.preprocessing import chatbot_response
-from flask import Flask, request
+from flask import Flask, request, make_response
 
 app = Flask(__name__)
 
@@ -8,6 +8,10 @@ app = Flask(__name__)
 def get_response():
     data = request.get_data().decode('utf-8')
     res = chatbot_response(data)
+    res = make_response(res)
+    res.mimetype = "text/plain"
+    print("This is response:")
+    print(res)
     return res
 
 
