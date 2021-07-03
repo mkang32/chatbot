@@ -36,23 +36,23 @@ function addText(str, who){
 }
 
 function getBotResponse(str){
-<!--    const xhttp = new XMLHttpRequest();-->
-<!--    xhttp.onload = addText(this.responseText, 'Bot')-->
-<!--    xhttp.open("GET", "response.txt");-->
-<!--    xhttp.send();-->
-
     postData('http://127.0.0.1:5000/api/', str)
-    .then(
-        function(value) {addText(value, 'Bot');},
-        function(error) {addText(error, 'Bot');}
-    );
+        .then(res => res.text())
+        .then(data => addText(data, 'Bot'))
+        .catch(res => {
+            addText(res, 'Bot');
+        });
 }
+<!--https://stackoverflow.com/a/38296817/9449085-->
 
-async function postData(url = '', data = '') {
-  const response = await fetch(url, {
+function postData(url = '', data = '') {
+  const response = fetch(url, {
     method: 'POST',
-    headers: {'content-type': 'text/plain', 'Accept-Charset': 'UTF-8'},
-    body: data
+    headers: {'content-type': 'text/plain',
+              'Accept-Charset': 'UTF-8'},
+    body: data,
+    mode: 'no-cors',
+    credentials: 'include'
   });
   return response;
 }
@@ -66,14 +66,15 @@ function putScrollToBottom(){
 
 
 <!--Show chat history-->
-<textarea id="textarea" rows="10" cols="20">
+<textarea id="textarea" rows="20" cols="40">
 Bot: How can I help you?</textarea>
 
 <!--Submit new sentence-->
 <br>
-<textarea id="userInput" name="userInput">
-How can you help me?</textarea>
-<button type="submit" onclick="postSentence(document.getElementById('userInput').value)">Submit</button>
+<textarea id="userInput" rows="1" cols="40"
+          name="userInput"></textarea>
+<button type="submit"
+        onclick="postSentence(document.getElementById('userInput').value)">Submit</button>
 
 </body>
 </html>
