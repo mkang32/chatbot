@@ -19,6 +19,9 @@ function postSentence(str){
     <!-- Add to the existing textarea -->
     addText(str, 'You')
 
+    <!-- Remove -->
+    removeUserInput()
+
     <!-- get bot response -->
     getBotResponse(str)
 }
@@ -27,12 +30,16 @@ function addText(str, who){
     <!-- Add new sentence to the exiting textarea -->
     document.getElementById('textarea').value =
     document.getElementById('textarea').value
-    + '\n'
+    + '\n\n'
     + who + ': '
     + str
 
     <!-- Always put scroll at the bottom -->
     putScrollToBottom()
+}
+
+function removeUserInput(){
+    document.getElementById('userInput').value = ""
 }
 
 function getBotResponse(str){
