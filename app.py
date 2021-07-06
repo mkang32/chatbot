@@ -1,8 +1,11 @@
 from chat.preprocessing import chatbot_response
-from flask import Flask, request, make_response
+from flask import Flask, request, make_response, render_template
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return render_template('home.html')
 
 @app.route('/api/', methods=['POST'])
 def get_response():
