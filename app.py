@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # @app.route('/')
 # def home():
-#     data = {'url': 'http://127.0.0.1:5000/api/'}
+#     data = {'url': 'http://0.0.0.0:5000/api/'}
 #     return render_template('home.html', data=data)
 
 @app.route('/')
