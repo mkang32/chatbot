@@ -1,4 +1,4 @@
-# FROM python:3.7
+# FROM python:3.6
 #
 # # RUN pip install virtualenv
 # # ENV VIRTUAL_ENV=/venv
@@ -24,4 +24,4 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
-CMD ["python", "new_app.py"]
+CMD ["python", "app/app.py"]

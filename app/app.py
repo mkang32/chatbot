@@ -1,4 +1,4 @@
-from chat.preprocessing import chatbot_response
+from preprocessing import chatbot_response
 from flask import Flask, request, make_response, render_template
 import os
 
