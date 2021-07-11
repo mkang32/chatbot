@@ -8,14 +8,14 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
 # the below lines need to be run one time
-# nltk.download('punkt')
-# nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('wordnet')
 
 
-words = pickle.load(open('chat/words.pkl', 'rb'))
-model = load_model('chat/chatbot_model.h5')
-classes = pickle.load(open('chat/classes.pkl', 'rb'))
-intents = json.load(open('chat/intents.json', 'rb'))
+words = pickle.load(open('app/words.pkl', 'rb'))
+model = load_model('app/chatbot_model.h5')
+classes = pickle.load(open('app/classes.pkl', 'rb'))
+intents = json.load(open('app/intents.json', 'rb'))
 
 def clean_up_sentence(sentence):
 	"""
