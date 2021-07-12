@@ -4,14 +4,12 @@ import os
 
 app = Flask(__name__)
 
-# @app.route('/')
-# def home():
-#     data = {'url': 'http://0.0.0.0:5000/api/'}
-#     return render_template('home.html', data=data)
 
 @app.route('/')
 def home():
-    return render_template('test.html')
+    data = {'url': 'http://0.0.0.0:5000/api/'}
+    return render_template('home.html', data=data)
+
 
 @app.route('/api/', methods=['POST'])
 def get_response():
